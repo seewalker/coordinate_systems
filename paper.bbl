@@ -1,0 +1,85 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.4 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \sortlist{nty}{nty}
+    \entry{mathworld}{online}{}
+      \field{sortinit}{0}
+      \field{sortinithash}{a08a9549c5c2429f8cec5d1a581b26ca}
+      \verb{url}
+      \verb http://mathworld.wolfram.com
+      \endverb
+    \endentry
+    \entry{griffiths}{book}{}
+      \name{labelname}{1}{}{%
+        {{hash=3f7a9e85c3ff6da61d1cfc99fb826cc2}{Griffiths}{G\bibinitperiod}{David\bibnamedelima J}{D\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{hash=3f7a9e85c3ff6da61d1cfc99fb826cc2}{Griffiths}{G\bibinitperiod}{David\bibnamedelima J}{D\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {Pearson}%
+      }
+      \strng{namehash}{3f7a9e85c3ff6da61d1cfc99fb826cc2}
+      \strng{fullhash}{3f7a9e85c3ff6da61d1cfc99fb826cc2}
+      \field{sortinit}{G}
+      \field{sortinithash}{480ee01f9ffd559b3258d822f54a8ac2}
+      \field{labeltitle}{Introduction to electrodynamics}
+      \field{title}{Introduction to electrodynamics}
+      \field{year}{2013}
+    \endentry
+    \entry{kusse}{book}{}
+      \name{labelname}{2}{}{%
+        {{hash=86b5cd8a477391ee8e560f3b3beef70a}{Kusse}{K\bibinitperiod}{Bruce\bibnamedelima R}{B\bibinitperiod\bibinitdelim R\bibinitperiod}{}{}{}{}}%
+        {{hash=9ae4cd45dafab7d6223bcb5fb1dd1a1e}{Westwig}{W\bibinitperiod}{Erik\bibnamedelima A}{E\bibinitperiod\bibinitdelim A\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{2}{}{%
+        {{hash=86b5cd8a477391ee8e560f3b3beef70a}{Kusse}{K\bibinitperiod}{Bruce\bibnamedelima R}{B\bibinitperiod\bibinitdelim R\bibinitperiod}{}{}{}{}}%
+        {{hash=9ae4cd45dafab7d6223bcb5fb1dd1a1e}{Westwig}{W\bibinitperiod}{Erik\bibnamedelima A}{E\bibinitperiod\bibinitdelim A\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {John Wiley \& Sons}%
+      }
+      \strng{namehash}{ef1e54acf7f6d3912f6e60b9f8da30bc}
+      \strng{fullhash}{ef1e54acf7f6d3912f6e60b9f8da30bc}
+      \field{sortinit}{K}
+      \field{sortinithash}{33bf4c961fa093ee6a297ccbd88eacc0}
+      \field{labeltitle}{Mathematical physics: applied mathematics for scientists and engineers}
+      \field{title}{Mathematical physics: applied mathematics for scientists and engineers}
+      \field{year}{2010}
+    \endentry
+    \entry{napolitano}{online}{}
+      \name{labelname}{1}{}{%
+        {{hash=b87d786f54d3cf33fabdda13f1df174d}{Napolitano}{N\bibinitperiod}{Jim}{J\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{hash=b87d786f54d3cf33fabdda13f1df174d}{Napolitano}{N\bibinitperiod}{Jim}{J\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{b87d786f54d3cf33fabdda13f1df174d}
+      \strng{fullhash}{b87d786f54d3cf33fabdda13f1df174d}
+      \field{sortinit}{N}
+      \field{sortinithash}{a52ecf374d1aa02cdea5f29be4dad56c}
+      \field{labeltitle}{Vectors and Covectors in Special Relativity}
+      \field{title}{Vectors and Covectors in Special Relativity}
+      \field{year}{2010}
+    \endentry
+  \endsortlist
+\endrefsection
+\endinput
+

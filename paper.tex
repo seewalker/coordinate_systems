@@ -40,7 +40,7 @@ Much of the knowledge people pick up in calculus is local to the rectangular coo
 
 \section*{Orthogonal Coordinate Systems}
 
-It is sufficient in specifying a coordinate system to define each coordinate value as a function of coordinate values in another system. Orthogonal systems have the property of orthogonal basis vectors at every point, expressed $\unit{i} \cdot \unit{j} = \delta_{i,j}$, with the Kronecker delta symbol. Four such systems are the toroidal coordinate system, a change from inches to centimeters and change from footpounds to joules, a linear change of basis, and an insubstantial substitution:
+It is sufficient in specifying a coordinate system to define each coordinate value as a function of coordinate values in another system. Orthogonal systems have the property of orthogonal basis vectors at every point, expressed $\unit{i} \cdot \unit{j} = \delta_{i,j}$, with the Kronecker delta symbol. That the systems I discuss are orthogonal can be verified by performing dot products on the basis vectors, but a more visible appreciation for their orthogonality is in \cref{fig:basis}. Four such systems are the toroidal coordinate system, a change from inches to centimeters and change from footpounds to joules, a linear change of basis, and an insubstantial substitution:
 
 \begin{align*}
 x &= a sinh(\eta) * cos(\phi) / (cosh(\eta) - cos(\zeta)) & x &= 2.54 x'  & x &= 0.6 x' + 0.1 y' & x &= y'\\
@@ -121,6 +121,7 @@ Elliptical cylindrical coordinates have the surfaces of constant $u$ being ellip
         \includegraphics[width=\textwidth]{images/hyperbolic_v.png}
         \caption{constant v in hyperbolic-cylindrical}
     \end{subfigure}
+\label{fig:surface}
 \caption{Isosurfaces}
 \end{figure}
 
@@ -139,6 +140,7 @@ Elliptical cylindrical coordinates have the surfaces of constant $u$ being ellip
         \caption{hyperbolic-cylindrical}
     \end{subfigure}
 \caption{Unit Basis Vectors}
+\caption{fig:basis}
 \end{figure}
 
 
@@ -236,17 +238,17 @@ $\textbf{T} = \begin{pmatrix}
 \label{tab:non_orth}
 \end{table}
 
-In the context of special relativity, reference frames have their own rectangular coordinate systems, one of whose components represents time. Distinct reference frames can be said to view each other's coordinate systems as non-orthogonal (\cref{fig:axes}). The physical interpretation of the non-aligned axes is relativity of simultanaity: events happening along a $t=k_1$ line do not occur along a $t'=k_2$ line. Similarly, because the position axes are not aligned, there is a relativity of position. (length contraction and time dilation discussion here).
+In the context of special relativity, each reference frame considers it's own space and time bases to be orthogonal and considers reference frames with non-zero relativity velocity to have non-orthogonal reference frames (\cref{fig:axes}). A physical interpretation of the non-aligned axes is relativity of simultanaity: events happening along a $t=k_1$ isosurface do not occur along a $t'=k_2$ isosurface. Similarly, because the position axes are not aligned, there is a relativity what is considered a static position. 
 
-Another way the discussion of coordinate systems systematizes thought about special relativity is through the metric tensor. A metric tensor is the parameter $g_{i,j}$ in the general definition of distance: $ (ds)^2 = g_{1,1} (dx_1)^2 + g_{1,2} dx_1 dx_2 + g_{2,2} (dx_2)^2 + ...$ \cite{mathworld}. When the Kronecker delta is used as the metric tensor, this distance definition is the familiar pythagorean theorem. However, the length of a vector in space-time is determined with the Minkowski metric:
+Another way the discussion of coordinate systems systematizes thought about special relativity is through the metric tensor. A metric tensor is the parameter $g_{i,j}$ in the general definition of distance: $ds^2 = dx^{\mu} g_{\mu \nu} dx^{\nu} $ \cite{napolitano}. When the Kronecker delta is used as the metric tensor, this distance definition is the familiar pythagorean theorem. However, the length of a vector in space-time is determined with the Minkowski metric:
 $\begin{pmatrix}
--1 & 0 & 0 & 0 \\
-0 & 1 & 0 & 0 \\
-0 & 0 & 1 & 0 \\
-0 & 0 & 0 & 1 \\
+1 & 0 & 0 & 0 \\
+0 & -1 & 0 & 0 \\
+0 & 0 & -1 & 0 \\
+0 & 0 & 0 & -1 \\
 \end{pmatrix}$
 
-This definition is used because it produces the four-vector: the quantity that is invariant under lorentz transformation. \cref{proof:fourVector} is a proof of the invariance for $(x,t)$ systems.
+This definition is used because it produces the four-vector: the quantity that is invariant under lorentz transformation. \cref{proof:fourVector} is a proof of the invariance for $(x,t)$ systems. According to Napolitano, the effects of this formulation of coordinates and distance are far-reaching, and require adjustments ideas like matricies of rotation and definition of force. The explanation of these adjustments is outside the scope of this paper.
 
 \begin{proof}
 \begin{align*}
@@ -258,6 +260,7 @@ This definition is used because it produces the four-vector: the quantity that i
 \end{align*}
 \label{proof:fourVector}
 \end{proof}
+
 
 \begin{figure}
 % todo - get two plots of axes from reference frame A and reference frame B's axes from A's perspective, side by side with s/A/B/flip
@@ -291,9 +294,9 @@ This integral evaluation uses the fact that $A_2 h_2$, $A_3 h_3$ and their parti
 
 \section*{Miscellaneous}
 
-Orthonormal coordinate systems can be constructed which have a 
+Orthonormal coordinate systems can be constructed which have a
 
-$q1'(q1,q2,q3), q2'(q1,q2,q3), q3'(q1,q2,q3) $ 
+$q1'(q1,q2,q3), q2'(q1,q2,q3), q3'(q1,q2,q3) $
 
 form, but no straightforward way to express the components in terms of primed components. For example, the elliptical cylindrical coordinate system's relationship of $x$ and $y$ to $u$ and $v$ cannot be easily solved for $u$ or $v$:
 
@@ -303,8 +306,6 @@ form, but no straightforward way to express the components in terms of primed co
 \end{align*}
 
 $x = sin(q_1 + q_2), y = cos(q_1 + q_2), z = q_3$ is an orthogonal coordinate system because $cos(u)$ and $sin(u)$ are orthogonal and, $q_1$ and $q_2$ are in the $\mathbb{R}^2$ subspace that touches only x and y (which is uniquely the x-y plane), and $q_3$ is an alias for $z$, so it is naturally orthogonal to that x-y plane. However, $cos$ and $sin$ have a range of $[-1,1]$, so the space spanned by $(q_1,q_2,q_3)$ is not the same as $(x,y,z)$. In addition to changing the expressable subspace, changes of coordinate system can also change uniqueness. While $\textbf{r} = (0, k_1, k_2)$ is a family of vectors that mean the zero vector in spherical coordinates, $(0,0,0)$ is the only zero vector in rectangular coordinates.
-
-What is there to say about degrees of freedom?
 
 \printbibliography
 \end{document}
