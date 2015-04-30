@@ -33,7 +33,7 @@
 
 \section*{Introduction}
 
-Most high school students have a go-to coordinate system and physists have at least three. Although using familiar coordinate systems is cognitively automatic, it is deep when one pays close attention to the process. A coordinate system creates a correspondence between what is “there” and a representation of that location. The symbolic expression of this correspondence is a dot product between a representation (components) and basis elements. Not only is that correspondence internally consistent, but any coordinate system’s representation can be transformed into a representation in another coordinate system of equal dimensionality. That is, while it is common to think about rectangular coordinates as the fundamental coordinate system and other coordinate systems as being defined in terms of rectangular coordinates for the sake of making certain problems more convenient, there is nothing more fundamental about rectangular coordinates.
+Most high school students have a go-to coordinate system and physists have at least three. Although using familiar coordinate systems is cognitively automatic, it is deep when one pays close attention to the process. A coordinate system creates a correspondence between what is “there” and a representation of that location. The symbolic expression of this correspondence is a dot product between a representation (components) and basis elements. Not only is that correspondence internally consistent, but any coordinate system’s representation can be transformed into a representation in another coordinate system of equal dimensionality (intracacies with this dicussed in \cref{sec:misc}). That is, while it is common to think about rectangular coordinates as the fundamental coordinate system and other coordinate systems as being defined in terms of rectangular coordinates for the sake of making certain problems more convenient, there is nothing more fundamental about rectangular coordinates.
 
 %these hrefs should be hyper-references to places in my paper.
 Much of the knowledge people pick up in calculus is local to the rectangular coordinate system. There are, however, more general and verbose specifications of ideas like 'curl'. To reduce this verbosity, many texts use a taxonomy of 'orthogonal vs non-orthogonal', 'unit-basis vs non-unit-basis', and 'position-independent vs position-dependent' \footnote{I use $q_i$ to signify an orthogonal, curvilinear component and $g_i$ to signify a non-orthogonal component in the tradition of Kusse and Westwig}. There is not, as far as I know, some flow-chart-like procedure for choosing the most convenient coordinate system for a problem. The way to get that convenience seems to be learning about coordinate systems in general, and then having insights. One source of convenience is that one can exploit symmetries (see notebook). Another is that there are physical situations that people approach as a standalone problem, e.g. the Lorentz transform, that can be thought of as instances of a coordinate system problem (see notebook). While this is more of a curiosity than a convenience, the coordinate system problem also includes the problem of changing units, e.g. adjusting from inches to centimeters. Fortunately, this is reflected in the word 'unit' as meaning 'the amount corresponding to the number 1', just as a unit vector is an amount corresponding to '1'.
@@ -43,12 +43,12 @@ Much of the knowledge people pick up in calculus is local to the rectangular coo
 It is sufficient in specifying a coordinate system to define each coordinate value as a function of coordinate values in another system. Orthogonal systems have the property of orthogonal basis vectors at every point, expressed $\unit{i} \cdot \unit{j} = \delta_{i,j}$, with the Kronecker delta symbol. That the systems I discuss are orthogonal can be verified by performing dot products on the basis vectors, but a more visible appreciation for their orthogonality is in \cref{fig:basis}. Four such systems are the toroidal coordinate system, a change from inches to centimeters and change from footpounds to joules, a linear change of basis, and an insubstantial substitution:
 
 \begin{align*}
-x &= a sinh(\eta) * cos(\phi) / (cosh(\eta) - cos(\zeta)) & x &= 2.54 x'  & x &= 0.6 x' + 0.1 y' & x &= y'\\
-y &= a sinh(\eta) * sin(\phi) / (cosh(\eta) - cos(\zeta)) & y &= 1.36 y'  & y &= 0.2 x' + 0.7 y' & y &= z' \\
-z &= a sin(\zeta) / (cosh(\eta) - cos(\zeta))             & z &= z'       &                      & z &= x' \\
+x &= a sinh(\eta) * cos(\phi) / (cosh(\eta) - cos(\zeta)) & x &= 2.54 x'  & x &= 0.6 x' + 0.1 z' & x &= y'\\
+y &= a sinh(\eta) * sin(\phi) / (cosh(\eta) - cos(\zeta)) & y &= 1.36 y'  & y &= y'              & y &= z' \\
+z &= a sin(\zeta) / (cosh(\eta) - cos(\zeta))             & z &= z'       & z &= 0.1 x' + 0.6 z' & z &= x' \\
 \end{align*}
 
-It is sufficient to specify these coordinate functions because a coordinate consists of components and basis vectors, and the component functions can be used to generate basis vectors. This process is outlined in \cref{tab:orth}. A potentially surprising consequence of this definition is that unit vector definitions are \textit{associated with} a point, rather than having a single identity that is applied at every point. However, this result passes the sanity check of $\unit{r}$ pointing from the origin to the point in spherical coordinates, wherever that point is. Scaling factors are the parameters of expressing vector calculus ideas in arbitrary curvilinear coordinates; for an example of a derivation of such a general result \cref{sec:curl}, for a full list of such results see \cref{tab:orth}. Because scaling factors are a relative concept, there must be a starting place. The idea is that two position-independent unit vectors have '1' as the relative value, e.g. (why is scaling factor of radius 1?)
+The reason is is sufficient to specify these coordinate functions it that a coordinate consists of components and basis vectors, and the component functions can be used to generate basis vectors. This process is outlined in \cref{tab:orth}, and can be qualitatively described as investigating how a position vector changes in response to infinitesimal changes in a component. A potentially surprising consequence of this definition is that unit vector definitions are \textit{associated with} a point, rather than having a single identity that is applied at every point. However, this result passes the sanity check of changes in $\unit{\phi}$ causing a greater change in position for longer radii. Scaling factors are the parameters of expressing vector calculus ideas in arbitrary curvilinear coordinates; for an example of a derivation of such a general result \cref{sec:curl}, for a full list of such results see \cref{tab:orth}. Because scaling factors are a relative concept, there must be a starting place. The idea is that two position-independent unit vectors have '1' as the relative value.
 
 Kusse and Westwig present the unit vectors as emerging from equations relating one coordinate system to another. This inductive definition would not be able to generate coordinate systems if there were not an base-case coordinate system whose unit vectors are already known. The soundness of this approach, then, depends on the existence of at least one coordinate system which can be thought of without this framework. Rectangular, cylindrical, and spherical coordinate systems are all widely-used and intuitive to physicists, so there is not a base-case problem.
 
@@ -105,7 +105,9 @@ Curl : $\nabla \times \textbf{U} = \frac{1}{h_1 h_2 h_3}  \begin{vmatrix}
 
 Until I did this project, I had never heard that cylindrical and spherical coordinates constitute an orthogonal coordinate systems and did not have a visual picture of how they are orthogonal. With cylindrical coordinates, $\unit{z}$ always points upwards, so $\unit{\phi}$ and $\unit{\rho}$ are constrained to a constant z plane. $\unit{\rho}$ points in the direction of the projection of the component vector $\textbf{r}$ onto the plane. $\unit{\phi}$ is position-dependent, and thought of as being always perpendicular the other two vectors. With spherical coordinates, $\unit{r}$ points in the same direction as the component vector $\textbf{r}$. $\unit{\theta}$ and $\unit{\phi}$ are, then, constrainted to within the plane normal to that vector. $\unit{\theta}$ is visualized such that if $\theta$ has value L degrees, it points L degrees above a plane of constant 'z'. This dependence of the direction on the value is what is meant by position dependence.
 
-Elliptical cylindrical coordinates have the surfaces of constant $u$ being ellipses with foci at $(a,0), (-a,0)$ in rectangular coordinates, where increasing values of $u$ corresponding to ellipses of greater area. $\unit{u}$ is thought as perpendicular to that ellipse, and in a constant-z plane. The surfaces of constant $v$ are hyperbolas centered around the origin, where the value of $v$ is the angle from the x axis that the hyperbola approaches as its behavoir approaches a line. $\unit{v}$ is thought of as pointing along the contour of the elliptical surface of the point. Collectively, $u$ and $v$ specify a point in a plane, so another coordinate $z$ specifies which plane in $\mathbb{R}^3$.
+Elliptical cylindrical coordinates have the surfaces of constant $u$ being ellipses with foci at $(a,0), (-a,0)$ in rectangular coordinates, where increasing values of $u$ corresponding to ellipses of greater area. $\unit{u}$ is thought as perpendicular to that ellipse, and in a constant-z plane. The surfaces of constant $v$ are hyperbolas centered around the origin, where the value of $v$ is the angle from the x axis that the hyperbola approaches as its behavoir approaches a line. $\unit{v}$ is thought of as pointing along the contour of the elliptical surface of the point. $\unit{u}$ and $\unit{v}$ can be shown to be orthogonal:
+
+Collectively, $u$ and $v$ specify a point in a plane, so another coordinate $z$ specifies which plane in $\mathbb{R}^3$.
 
 \begin{figure}
     \centering
@@ -147,7 +149,7 @@ Elliptical cylindrical coordinates have the surfaces of constant $u$ being ellip
 \section*{Applications of Orthogonal Coordinate Systems}
 \label{sec:convenient}
 
-Imagine a uniform distribution of charge in an elliptical cylinder of major axis 2, minor axis 1, and height 3. Given a surface, Gauss' Law relates the resulting electric field to the charge enclosed within the surface. The integral body is easiest to evaluate when $d \textbf{A}$ and $\textbf{E}$ are always parallel, so one chooses the surface where $z$ goes from 0 to 4 and $v$ goes from 0 to a large number, and $\mu$ is some value such that all charge is contained (such as 3). In order to accomodate major axis 2 and minor axis 1, using the property of ellipses relating foci distance to axes lengths: $a = \sqrt{2^2 - 1^2} = \sqrt{3}$. With this coordinate system and surface:
+Imagine a uniform distribution of charge in a vacuum in the shape of an elliptical cylinder of major axis 2, minor axis 1, and height 3. Given a surface, Gauss' Law relates the resulting electric field to the charge enclosed within the surface. The integral body is easiest to evaluate when $d \textbf{A}$ and $\textbf{E}$ are always parallel, so one chooses the surface where $z$ goes from 0 to 4 and $v$ goes through its range, and $\mu$ is some value such that all charge is contained (such as 3). In order to accomodate major axis 2 and minor axis 1, using the property of ellipses relating foci distance to axes lengths: $a = \sqrt{2^2 - 1^2} = \sqrt{3}$. With this coordinate system and surface:
 
 \begin{align*}
 \frac{Q_{enc}}{\epsilon_0} &= \oiint \textbf{E} \cdot d \textbf{A} \\
@@ -201,9 +203,9 @@ The explanation of the coordinate transformation matrix inversion in \cref{proof
 \begin{table}
 \begin{tabulary}{\textwidth}{|L|L|}
 Name & Description \\
-Contravariant Transform & $t_{i,j} = \partialfrac{x^i'}{x^j} $ \\
-& $t_{i,j}^{-1} = \partialfrac{x^i}{x^j'} $ \\
-& $V^i' = t_{i,j} V^j, \hat{g}_j' = t_{i,j} \hat{g}_i $ \\
+Contravariant Transform & $t_{i,j} = \partialfrac{x^i\prime}{x^j} $ \\
+& $t_{i,j}^{-1} = \partialfrac{x^i}{x^j\prime} $ \\
+& $V^{i}\prime = t_{i,j} V^j, \hat{g}_{j}\prime = t_{i,j} \hat{g}_i $ \\
 \hline
 \hline
  & $ {\bm \beta} = \frac{1}{c} \textbf{v}$ \\
@@ -238,7 +240,7 @@ $\textbf{T} = \begin{pmatrix}
 \label{tab:non_orth}
 \end{table}
 
-In the context of special relativity, each reference frame considers it's own space and time bases to be orthogonal and considers reference frames with non-zero relativity velocity to have non-orthogonal reference frames (\cref{fig:axes}). A physical interpretation of the non-aligned axes is relativity of simultanaity: events happening along a $t=k_1$ isosurface do not occur along a $t'=k_2$ isosurface. Similarly, because the position axes are not aligned, there is a relativity what is considered a static position. 
+In the context of special relativity, each reference frame considers it's own space and time bases to be orthogonal and considers reference frames with non-zero relativity velocity to have non-orthogonal reference frames (\cref{fig:axes}). A physical interpretation of the non-aligned axes is relativity of simultanaity: events happening along a $t=k_1$ isosurface do not occur along a $t'=k_2$ isosurface. Similarly, because the position axes are not aligned, there is a relativity what is considered a static position.
 
 Another way the discussion of coordinate systems systematizes thought about special relativity is through the metric tensor. A metric tensor is the parameter $g_{i,j}$ in the general definition of distance: $ds^2 = dx^{\mu} g_{\mu \nu} dx^{\nu} $ \cite{napolitano}. When the Kronecker delta is used as the metric tensor, this distance definition is the familiar pythagorean theorem. However, the length of a vector in space-time is determined with the Minkowski metric:
 $\begin{pmatrix}
@@ -275,24 +277,26 @@ This definition is used because it produces the four-vector: the quantity that i
 
 The derivation starts with Stoke's theorem, $ \iint_S d {\bm \sigma} \cdot \nabla \times \textbf{A} = \oint_C d\textbf{r} \cdot \textbf{A}$, and considers an infinitesimal area. The closed path around the portion of the surface where $ d {\bm \sigma} $ is parallel to $q_1$, and therefore orthogonal to $q_2$ and $q_3$, is expressed as:
 
-\begin{multline*}
-%\lim_{S \rightarrow \textbf{0}} \iint_S \sum_{i = 1}^{3} \hat{q_i} \cdot (\nabla \times \textbf{A}) h_{i+1 mod 3} h_{i + 2 mod 3} dq_{i+1 mod 3} dq_{i+2 mod 3}. \\ \\
-\oint_C d\textbf{r} \cdot \textbf{A} &= \int_{q_{2_0}}^{q_{2_0} + dq_2} (dq_2 (A_2 h_2) |_{q_{2_0}, q_{3_0}} + \partialfrac{A_2 h_2}{q_2} |_{q_{2_0},q_{3_0}} (q_2 - q_{2_0})) + \\
+\begin{equation}
+\begin{split}
+\oint_C d\textbf{r} \cdot \textbf{A} &= \int_{q_{2_0}}^{q_{2_0}+dq_2} (dq_2 (A_2 h_2) |_{q_{2_0}, q_{3_0}} + \partialfrac{A_2 h_2}{q_2} |_{q_{2_0},q_{3_0}} (q_2 - q_{2_0})) + \\
 \int_{q_{2_0} + dq_2}^{q_{2_0}} (dq_2 (A_2 h_2) |_{q_{2_0}, q_{3_0}} + \partialfrac{A_2 h_2}{q_2} |_{q_{2_0},q_{3_0}} (q_2 - q_{2_0}) + \partialfrac{A_2 h_2}{q_3} |_{q_{2_0},q_{3_0}} dq_3) + \\
 \int_{q_{3_0}}^{q_{3_0} + dq_3} (dq_3 (A_3 h_3) |_{q_{2_0}, q_{3_0}} + \partialfrac{A_3 h_3}{q_3} |_{q_{2_0},q_{3_0}} (q_3 - q_{3_0})) + \\
  \int_{q_{3_0} + dq_3}^{q_{3_0}} (dq_3 (A_3 h_3) |_{q_{2_0}, q_{3_0}} + \partialfrac{A_3 h_3}{q_3} |_{q_{2_0},q_{3_0}} (q_3 - q_{3_0}) + \partialfrac{A_3 h_3}{q_2} |_{q_{2_0},q_{3_0}} dq_2) \\
- &= (A_2 h_2) |_{q_{2_0}, q_{3_0}} dq_2 + \partialfrac{(A_2 h_2)}{q_2} |_{q_{2_0}, q_{3_0}} \frac{(dq_2)^2}{2} - \\
- ((A_2 h_2) |_{q_{2_0}, q_{3_0}} dq_2 + \partialfrac{(A_2 h_2)}{q_2} |_{q_{2_0}, q_{3_0}} \frac{(dq_2)^2}{2} + \partialfrac{A_2 h_2}{q_3} |_{q_{2_0},q_{3_0}} dq_2 dq_3) + \\
- (A_3 h_3) |_{q_{2_0}, q_{3_0}} dq_3 + \partialfrac{(A_3 h_3)}{q_3} |_{q_{2_0}, q_{3_0}} \frac{(dq_3)^2}{2} - \\
- ((A_3 h_3) |_{q_{2_0}, q_{3_0}} dq_3 + \partialfrac{(A_3 h_3)}{q_3} |_{q_{2_0}, q_{3_0}} \frac{(dq_3)^2}{2} + \partialfrac{A_3 h_3}{q_2} |_{q_{2_0},q_{3_0}} dq_2 dq_3) \\
-&=  dq_2 dq_3 (\partialfrac{h_3 A_3}{q_2} - \partialfrac{h_2 A_2}{q_3}) \\ \\
-\end{multline*}
+&= (A_2 h_2) |_{q_{2_0}, q_{3_0}} dq_2 + \partialfrac{(A_2 h_2)}{q_2} |_{q_{2_0}, q_{3_0}} \frac{(dq_2)^2}{2} - \\
+((A_2 h_2) |_{q_{2_0}, q_{3_0}} dq_2 + \partialfrac{(A_2 h_2)}{q_2} |_{q_{2_0}, q_{3_0}} \frac{(dq_2)^2}{2} + \partialfrac{A_2 h_2}{q_3} |_{q_{2_0},q_{3_0}} dq_2 dq_3) + \\
+(A_3 h_3) |_{q_{2_0}, q_{3_0}} dq_3 + \partialfrac{(A_3 h_3)}{q_3} |_{q_{2_0}, q_{3_0}} \frac{(dq_3)^2}{2} - \\
+((A_3 h_3) |_{q_{2_0}, q_{3_0}} dq_3 + \partialfrac{(A_3 h_3)}{q_3} |_{q_{2_0}, q_{3_0}} \frac{(dq_3)^2}{2} + \partialfrac{A_3 h_3}{q_2} |_{q_{2_0},q_{3_0}} dq_2 dq_3) \\
+&=  dq_2 dq_3 (\partialfrac{h_3 A_3}{q_2} - \partialfrac{h_2 A_2}{q_3}) \\
+\end{split}
+\end{equation}
 
 Substituting into Stoke's theorem, we get $\hat{q_1} \cdot \nabla \times \textbf{A} = \frac{1}{h_2}{h_3} (\partialfrac{h_3 A_3}{q_2} - \partialfrac{h_2 A_2}{q_3}) $
 
 This integral evaluation uses the fact that $A_2 h_2$, $A_3 h_3$ and their partial derivatives are known at the point $(q_{2_0}, q_{3_0})$, and that the differential path length allows the value of $A_2 h_2$ at any point in the path to be approximated with that value plus the necessary rates of change. It also uses the differential path length to have the four branches of the path separated by points that make a square, the assumption which is neccesary to allow the last step of simplification. This process gives the $q_1$ component of the curl. Repeating the process with the portion of the surface whose normal is parallel to $q_2$ and again with $q_3$ produces the $q_2$ and $q_3$ components of the curl.
 
 \section*{Miscellaneous}
+\label{sec:misc}
 
 Orthonormal coordinate systems can be constructed which have a
 
